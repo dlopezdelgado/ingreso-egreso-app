@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(data: any) {
     console.log(data);
+    console.log('testing');
+    
 
   }
 
