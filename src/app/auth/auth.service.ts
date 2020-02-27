@@ -13,6 +13,7 @@ export class AuthService {
     this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(resp => {
+
         console.log(resp);
 
       })
