@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 import { User } from './user.model';
 
 import { AppState } from '../app.reducer';
-import { SetUserAction } from './auth.actions';
+import { SetUserAction, UnsetUserAction } from './auth.actions';
 import { Subscription } from 'rxjs';
 
 @Injectable({
@@ -108,6 +108,8 @@ export class AuthService {
   logout() {
     this.router.navigate(['/login']);
     this.afAuth.auth.signOut();
+
+    this.store.dispatch(new UnsetUserAction());
   }
 
   isAuth() {
@@ -123,7 +125,7 @@ export class AuthService {
       );
   }
 
-  getUsuario(){
-    return {...this.usuario};
+  getUsuario() {
+    return { ...this.usuario };
   }
 }
